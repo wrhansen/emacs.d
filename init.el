@@ -91,4 +91,5 @@
 ;; *THE* git plugin for emacs
 ;; Everywhere I look, this is the git plugin that people use.
 (require 'magit)
-(global-set-key  (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
