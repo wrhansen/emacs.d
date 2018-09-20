@@ -35,7 +35,10 @@
 ;; Adds a bunch of icons for various other packages
 ;; I'm currently going to use it to display filetype icons in NeoTree
 (use-package  all-the-icons
-  :ensure t)
+  :ensure t
+  :config
+  (all-the-icons-install-fonts)
+ )
 
 ;; Turn on font-lock mode to color text in certain modes
 (global-font-lock-mode t)
