@@ -6,7 +6,7 @@
 ;; Initialize the use-package plugin
 ;; This will help automatically download everything else
 (eval-when-compile
-  (add-to-list 'load-path "~/.emacs.d/third-party/")
+  (add-to-list 'load-path "~/.emacs.d/third-party/use-package")
   (require 'use-package))
 
 ;; update the package metadata if the local cache is missing
@@ -26,13 +26,16 @@
 
 ;; My Current Theme -- solarized!
 ;; I'm getting it from melpa
+(use-package solarized-theme
+  :ensure t)
 (load-theme 'solarized-dark t)
 
 ;; All the Icons
 ;; https://github.com/domtronn/all-the-icons.el
 ;; Adds a bunch of icons for various other packages
 ;; I'm currently going to use it to display filetype icons in NeoTree
-(require 'all-the-icons)
+(use-package  all-the-icons
+  :ensure t)
 
 ;; Turn on font-lock mode to color text in certain modes
 (global-font-lock-mode t)
@@ -64,20 +67,23 @@
 
 ;; Org Mode Settings
 (global-set-key "\C-ca" 'org-agenda)
-(require 'org-bullets)
+(use-package org-bullets
+  :ensure t)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Dashboard package
 ;; https://github.com/rakanalh/emacs-dashboard
 ;; Trying this out for a more custom start screen experience
-(require 'dashboard)
+(use-package dashboard
+  :ensure t)
 (dashboard-setup-startup-hook)
 (setq dashboard-banner-logo-title "Welcome to emacs, Wes")
 
 ;; NeoTree package
 ;; https://github.com/jaypei/emacs-neotree
 ;; Provides a visual directory tree which I can toggle off and on with f8
-(require 'neotree)
+(use-package neotree
+  :ensure t)
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
@@ -91,7 +97,8 @@
 ;; Project Interaction Library
 ;; Nice set of features for operating on a project level
 ;; TODO: Still need to figure out what this one does. The C-c p shortcut doesn't seem to work
-(require 'projectile)
+(use-package projectile
+  :ensure t)
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -100,11 +107,14 @@
 ;; https://magit.vc
 ;; *THE* git plugin for emacs
 ;; Everywhere I look, this is the git plugin that people use.
-(require 'magit)
+(use-package magit
+  :ensure t)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 
 ;; Markdown Mode
 ;; Markdown support
-(require 'markdown-mode)
+(use-package markdown-mode
+  :ensure t)
+
