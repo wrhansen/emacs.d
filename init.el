@@ -3,6 +3,16 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+;; Initialize the use-package plugin
+;; This will help automatically download everything else
+(eval-when-compile
+  (add-to-list 'load-path "~/.emacs.d/third-party/")
+  (require 'use-package))
+
+;; update the package metadata if the local cache is missing
+(unless package-archive-contents
+  (package-refresh-contents))
+
 ;; Maximize the frame on startup
 (toggle-frame-maximized)
 
@@ -93,3 +103,8 @@
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+
+;; Markdown Mode
+;; Markdown support
+(require 'markdown-mode)
