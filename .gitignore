@@ -2,3 +2,4 @@
 !init.el
 !.gitignore
 !third-party/*
+!README.md
