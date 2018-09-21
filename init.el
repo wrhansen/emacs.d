@@ -126,3 +126,37 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+;; Column Number Mode
+;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Displaying-the-current-line-or-column.html
+;; Displays the current line number of the point in the mode line.
+(setq column-number-mode t)
+
+;; Show Paren Mode
+;; https://www.emacswiki.org/emacs/ShowParenMode
+;; See matching pairs of parentheses
+(show-paren-mode 1)
+
+;; Turn on Visual Line Mode
+;; For Word wrapping??
+(global-visual-line-mode 1)
+
+;; Git Gutter
+;; This is just like SublimeText's GitGutter plugin
+;; https://github.com/syohex/emacs-git-gutter
+(use-package git-gutter
+	     :ensure t)
+(global-git-gutter-mode +1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (git-gutter solarized-theme projectile org-bullets neotree markdown-mode magit dashboard all-the-icons))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
