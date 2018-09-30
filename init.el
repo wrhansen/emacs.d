@@ -13,22 +13,28 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; Whitespace mode
+;; Makes particular whitespace characters stand out better.
+(global-whitespace-mode 1)
+;; whitespace-line is used to "visualize" long lines
+;; I set it to nil here because I don't want that setting
+;; It was coloring the entire line that's longer than 80 characters
+;; to solarized "magenta" color. I didn't like how that looked.
+(setq-default whitespace-line nil)
+
+
 ;; Maximize the frame on startup
 (toggle-frame-maximized)
 
 ;; Set the font
 (set-frame-font "Iosevka 11")
 
-;; Whitespace mode
-;; Makes particular whitespace characters stand out better.
-;; XXX: This currently conflicts with my theme. Occasionally it doesn't decorate a line properly (all pink).
-;;(global-whitespace-mode 1)
-
 ;; My Current Theme -- solarized!
 ;; I'm getting it from melpa
 (use-package solarized-theme
   :ensure t)
 (load-theme 'solarized-dark t)
+
 
 ;; All the Icons
 ;; https://github.com/domtronn/all-the-icons.el
@@ -145,7 +151,7 @@
 ;; This is just like SublimeText's GitGutter plugin
 ;; https://github.com/syohex/emacs-git-gutter
 (use-package git-gutter
-	     :ensure t)
+     :ensure t)
 (global-git-gutter-mode +1)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
